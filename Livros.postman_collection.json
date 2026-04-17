@@ -1,520 +1,98 @@
 {
   "info": {
-    "name": "API de Livros",
-    "description": "Collection completa para testar a API de Livros com CRUD",
+    "name": "Livros API",
+    "description": "API REST para gerenciar biblioteca de livros",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "GET - Listar todos os livros",
+      "name": "🔐 Login",
       "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
+        "method": "POST",
+        "url": "http://localhost:3000/auth/login"
       }
     },
     {
-      "name": "GET - Filtrar por gênero",
+      "name": "📖 Listar Livros",
       "request": {
         "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?genero=Ficção Científica",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "genero",
-              "value": "Ficção Científica"
-            }
-          ]
-        }
+        "url": "http://localhost:3000/api/livros"
       }
     },
     {
-      "name": "GET - Filtrar por preço máximo",
+      "name": "📖 Buscar por ID",
       "request": {
         "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?preco_max=50",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "preco_max",
-              "value": "50"
-            }
-          ]
-        }
+        "url": "http://localhost:3000/api/livros/1"
       }
     },
     {
-      "name": "GET - Filtrar por preço mínimo",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?preco_min=50",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "preco_min",
-              "value": "50"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Ordenar por preço (crescente)",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?ordem=preco&direcao=asc",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "ordem",
-              "value": "preco"
-            },
-            {
-              "key": "direcao",
-              "value": "asc"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Ordenar por preço (decrescente)",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?ordem=preco&direcao=desc",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "ordem",
-              "value": "preco"
-            },
-            {
-              "key": "direcao",
-              "value": "desc"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Ordenar por título",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?ordem=titulo&direcao=asc",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "ordem",
-              "value": "titulo"
-            },
-            {
-              "key": "direcao",
-              "value": "asc"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Paginação",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?pagina=2&limite=5",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "pagina",
-              "value": "2"
-            },
-            {
-              "key": "limite",
-              "value": "5"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Filtros combinados",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros?genero=Ficção Científica&preco_max=60&ordem=preco&direcao=asc",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"],
-          "query": [
-            {
-              "key": "genero",
-              "value": "Ficção Científica"
-            },
-            {
-              "key": "preco_max",
-              "value": "60"
-            },
-            {
-              "key": "ordem",
-              "value": "preco"
-            },
-            {
-              "key": "direcao",
-              "value": "asc"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "name": "GET - Por ID (sucesso)",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "1"]
-        }
-      }
-    },
-    {
-      "name": "GET - Por ID (não encontrado)",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros/999",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "999"]
-        }
-      }
-    },
-    {
-      "name": "POST - Criar livro (válido)",
+      "name": "📝 Criar Livro",
       "request": {
         "method": "POST",
         "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
           {
             "key": "Content-Type",
             "value": "application/json"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"Clean Code\",\n  \"autor\": \"Robert Martin\",\n  \"ano\": 2008,\n  \"genero\": \"Programação\",\n  \"preco\": 85.00,\n  \"estoque\": 10\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
+        "url": "http://localhost:3000/api/livros"
       }
     },
     {
-      "name": "POST - Título obrigatório",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"autor\": \"Robert Martin\",\n  \"ano\": 2008,\n  \"genero\": \"Programação\",\n  \"preco\": 85.00,\n  \"estoque\": 10\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
-      }
-    },
-    {
-      "name": "POST - Title muito curto",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"A\",\n  \"autor\": \"Robert Martin\",\n  \"ano\": 2008,\n  \"genero\": \"Programação\",\n  \"preco\": 85.00,\n  \"estoque\": 10\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
-      }
-    },
-    {
-      "name": "POST - Preço inválido (negativo)",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"Clean Code\",\n  \"autor\": \"Robert Martin\",\n  \"ano\": 2008,\n  \"genero\": \"Programação\",\n  \"preco\": -50,\n  \"estoque\": 10\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
-      }
-    },
-    {
-      "name": "POST - Ano inválido",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"Clean Code\",\n  \"autor\": \"Robert Martin\",\n  \"ano\": 500,\n  \"genero\": \"Programação\",\n  \"preco\": 85.00,\n  \"estoque\": 10\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
-      }
-    },
-    {
-      "name": "POST - Estoque inválido (negativo)",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"Clean Code\",\n  \"autor\": \"Robert Martin\",\n  \"ano\": 2008,\n  \"genero\": \"Programação\",\n  \"preco\": 85.00,\n  \"estoque\": -5\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros"]
-        }
-      }
-    },
-    {
-      "name": "PUT - Atualizar livro completo",
+      "name": "✏️ Atualizar",
       "request": {
         "method": "PUT",
         "header": [
           {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"titulo\": \"1984 - Edição Revisada\",\n  \"autor\": \"George Orwell\",\n  \"ano\": 1949,\n  \"genero\": \"Ficção Científica\",\n  \"preco\": 49.99,\n  \"estoque\": 20\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros/1",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "1"]
-        }
-      }
-    },
-    {
-      "name": "PUT - Atualizar apenas preço",
-      "request": {
-        "method": "PUT",
-        "header": [
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
           {
             "key": "Content-Type",
             "value": "application/json"
           }
         ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"preco\": 59.99\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros/2",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "2"]
-        }
+        "url": "http://localhost:3000/api/livros/1"
       }
     },
     {
-      "name": "PUT - Atualizar estoque",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"estoque\": 25\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros/5",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "5"]
-        }
-      }
-    },
-    {
-      "name": "PUT - ID não encontrado",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"preco\": 100\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros/999",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "999"]
-        }
-      }
-    },
-    {
-      "name": "PUT - Validação de dados",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"preco\": -100\n}"
-        },
-        "url": {
-          "raw": "http://localhost:3000/api/livros/3",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "3"]
-        }
-      }
-    },
-    {
-      "name": "DELETE - Remover livro",
+      "name": "🗑️ Deletar",
       "request": {
         "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros/15",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "15"]
-        }
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": "http://localhost:3000/api/livros/1"
       }
     },
     {
-      "name": "DELETE - ID não encontrado",
+      "name": "👥 Autores",
       "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/api/livros/999",
-          "protocol": "http",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["api", "livros", "999"]
-        }
+        "method": "GET",
+        "url": "http://localhost:3000/api/autores"
       }
+    },
+    {
+      "name": "📊 Stats",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/stats"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
     }
   ]
 }
